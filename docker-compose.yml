@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  qwen3-demo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: qwen3-demo
+    container_name: qwen3-demo
+    runtime: nvidia
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/app/qwen3-demo
+    working_dir: /app/qwen3-demo
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+    command: >
+      bash -c '/usr/local/bin/ollama serve & /app/.venv/bin/jupyter lab --ip="*" --port=8888 --NotebookApp.token="" --NotebookApp.password="" --no-browser --allow-root'
