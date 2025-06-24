@@ -43,11 +43,10 @@ http://localhost:8888
 
 ```
 qwen3-demo/
-├── docker-compose.yml      # Jupyter環境を含むDocker構成
-├── Dockerfile              # 環境構築用Dockerfile
-├── demo.ipynb              # デモ用Jupyter Notebook
-├── README.md               # このファイル
-└── その他ソースコード等...
+├── docker-compose.yml
+├── Dockerfile
+├── demo.ipynb
+└── README.md
 ```
 
 ---
